@@ -9,6 +9,7 @@ class fluentbit::repo::redhat {
 
   $flavour = dig($facts, 'os', 'distro', 'id')
   $release = dig($facts, 'os', 'distro', 'codename')
+  $os_version = dig($facts, 'os', 'release', 'major')
   $supported = $flavour ? {
     'Ol' => [
       'Ootpa',
@@ -27,8 +28,8 @@ class fluentbit::repo::redhat {
     ensure    => 'present',
     name      => 'fluentbit',
     descr     => 'Official Treasure Data repository for Fluent-Bit',
-    baseurl   => "https://packages.fluentbit.io/${_flavour}/${release}",
-    gpgkey    => $fluentbit::repo_key_location,
+    baseurl   => "https://packages.fluentbit.io/centos/${os_version}",
+    gpgkey    => https://packages.fluentbit.io/fluentbit.key,
     enabled   => '1',
     gpgcheck  => '1',
     target    => '/etc/yum.repo.d/fluentbit.repo',
