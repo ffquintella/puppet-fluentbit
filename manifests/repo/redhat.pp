@@ -27,7 +27,7 @@ class fluentbit::repo::redhat {
     ensure    => 'present',
     name      => 'fluentbit',
     descr     => 'Official Treasure Data repository for Fluent-Bit',
-    baseurl   => 'https://packages.fluentbit.io/${_flavour}/${release}',
+    baseurl   => "https://packages.fluentbit.io/${_flavour}/${release}",
     gpgkey    => $fluentbit::repo_key_location,
     enabled   => '1',
     gpgcheck  => '1',
