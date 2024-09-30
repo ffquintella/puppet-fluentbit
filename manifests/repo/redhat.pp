@@ -29,7 +29,7 @@ class fluentbit::repo::redhat {
     name      => 'fluentbit',
     descr     => 'Official Treasure Data repository for Fluent-Bit',
     baseurl   => "https://packages.fluentbit.io/centos/${os_version}",
-    gpgkey    => https://packages.fluentbit.io/fluentbit.key,
+    gpgkey    => 'https://packages.fluentbit.io/fluentbit.key',
     enabled   => '1',
     gpgcheck  => '1',
     target    => '/etc/yum.repo.d/fluentbit.repo',
