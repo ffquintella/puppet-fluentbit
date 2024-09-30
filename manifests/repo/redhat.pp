@@ -21,8 +21,6 @@ class fluentbit::repo::redhat {
     fail("OS ${flavour}/${release} is not supported")
   }
 
-  contain '::apt'
-
   $_flavour = downcase($flavour)
 
   yumrepo { 'fluentbit':
