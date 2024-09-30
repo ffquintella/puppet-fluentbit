@@ -6,6 +6,9 @@ class fluentbit::repo {
 
   if $fluentbit::manage_package_repo {
     case $facts['os']['family'] {
+      'RedHat': {
+        contain '::fluentbit::repo::redhat'
+      }
       'Debian': {
         contain '::fluentbit::repo::debian'
       }
