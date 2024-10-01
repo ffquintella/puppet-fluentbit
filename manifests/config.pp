@@ -6,9 +6,9 @@
 #
 # @private
 #   include fluentbit::config
-class fluentbit::config {
-  assert_private()
-
+class fluentbit::config (
+  $use_filters = false
+){
   File {
     ensure  => file,
     mode    => $fluentbit::config_file_mode,
@@ -42,7 +42,6 @@ class fluentbit::config {
   $storage_checksum = bool2str($fluentbit::storage_checksum, 'On', 'Off')
   $storage_backlog_mem_limit = $fluentbit::storage_backlog_mem_limit
   $variables = $fluentbit::variables
-  $use_filters = $fluentbit::use_filters
 
   file { $fluentbit::config_file:
     content => template('fluentbit/td-agent-bit.conf.erb'),
