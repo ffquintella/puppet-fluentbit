@@ -42,6 +42,7 @@ class fluentbit::config {
   $storage_checksum = bool2str($fluentbit::storage_checksum, 'On', 'Off')
   $storage_backlog_mem_limit = $fluentbit::storage_backlog_mem_limit
   $variables = $fluentbit::variables
+  $use_filters = $luentbit::use_filters
 
   file { $fluentbit::config_file:
     content => template('fluentbit/td-agent-bit.conf.erb'),

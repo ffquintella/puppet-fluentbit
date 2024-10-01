@@ -25,6 +25,8 @@ fluentbit::http_listen: '0.0.0.0'
 fluentbit::http_port: 2020
 fluentbit::coro_stack_size: 24576
 
+fluentbit::use_filter: false
+
 fluentbit::variables: {}
 
 fluentbit::storage_path: ~

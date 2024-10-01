@@ -30,4 +30,7 @@
 
 @INCLUDE input_*.conf
 @INCLUDE output_*.conf
+
+<% if @use_filters %>
 @INCLUDE filter_*.conf
+<% end -%>
