@@ -162,6 +162,7 @@ class fluentbit (
 
   Stdlib::Absolutepath $config_file,
   Stdlib::Filemode $config_file_mode,
+  Boolean $use_filters,
   Integer $flush,
   Boolean $daemon,
   Optional[Stdlib::Absolutepath] $log_file,
