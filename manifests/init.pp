@@ -190,10 +190,10 @@ class fluentbit (
   contain fluentbit::config
   contain fluentbit::service
 
-  Class['::fluentbit::repo']
-    -> Class['::fluentbit::install']
-    -> Class['::fluentbit::config']
-    ~> Class['::fluentbit::service']
+  Class['fluentbit::repo']
+    -> Class['fluentbit::install']
+    -> Class['fluentbit::config']
+    ~> Class['fluentbit::service']
 
   $input_plugins.each |$index, $plugin| {
     $name = $plugin['name']
