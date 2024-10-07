@@ -14,6 +14,7 @@ class fluentbit::repo::redhat {
     'Ol' => [
       'Ootpa',
       'Plow',
+      'Maipo',
     ],
     default => [],
   }
