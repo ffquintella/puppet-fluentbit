@@ -7,23 +7,12 @@
 class fluentbit::repo::redhat {
   assert_private()
 
-  $flavour = dig($facts, 'os', 'distro', 'id')
-  $release = dig($facts, 'os', 'distro', 'codename')
   $os_version = dig($facts, 'os', 'release', 'major')
-  $supported = $flavour ? {
-    'Ol' => [
-      'Ootpa',
-      'Plow',
-      'Maipo',
-    ],
-    default => [],
-  }
+  $supported_releases = ['8', '9', '10']
 
-  unless $release in $supported {
-    fail("OS ${flavour}/${release} is not supported")
+  unless $os_version in $supported_releases {
+    fail("RedHat family release ${os_version} is not supported")
   }
-
-  $_flavour = downcase($flavour)
 
   yumrepo { 'fluentbit':
     ensure    => 'present',
@@ -33,6 +22,6 @@ class fluentbit::repo::redhat {
     gpgkey    => 'https://packages.fluentbit.io/fluentbit.key',
     enabled   => '1',
     gpgcheck  => '1',
-    target    => '/etc/yum.repo.d/fluentbit.repo',
+    target    => '/etc/yum.repos.d/fluentbit.repo',
   }
 }
