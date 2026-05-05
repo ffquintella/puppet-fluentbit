@@ -1,6 +1,6 @@
 {
   "name": "helio-fluentbit",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "Felipe Quintella",
   "summary": "Installs and manages Fluentbit for Debian, Ubuntu and RedHat",
   "license": "Apache-2.0",
